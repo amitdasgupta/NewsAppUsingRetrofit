@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="My Profile">
+        <menu>
+            <item
+                android:id="@+id/signin"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Sign In" />
+            <item
+                android:id="@+id/myfeeds"
+                android:icon="@drawable/ic_menu_send"
+                android:title="My Feeds" />
+            <item
+                android:id="@+id/unreadnews"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Unread News" />
+            <item
+                android:id="@+id/mytopics"
+                android:icon="@drawable/ic_menu_send"
+                android:title="My Topics" />
+        </menu>
+    </item>
+    <item android:title="Trending">
+    <menu>
+        <item
+            android:id="@+id/topstories"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Top Stories" />
+        <item
+            android:id="@+id/popularstories"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Popular Stories" />
+        <item
+            android:id="@+id/latestsories"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Latest Stories" />
+
+    </menu>
+</item>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu>
