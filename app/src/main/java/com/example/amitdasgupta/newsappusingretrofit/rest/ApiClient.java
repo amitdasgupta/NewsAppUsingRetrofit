@@ -2,10 +2,7 @@ package com.example.amitdasgupta.newsappusingretrofit.rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-/*apiKey=d2f4898593314731ad64d4bf762f42d3/
-/**
- * Created by AMIT DAS GUPTA on 25-09-2017.
- */
+
 
 public class ApiClient {
     public static final String BASE_URL = "https://newsapi.org/v1/";

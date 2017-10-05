@@ -56,7 +56,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener  {
     //firebase authentication
-
+    int flag=0;
     private FirebaseAuth mAuth;
     //sweetAlerDialog progress
     SweetAlertDialog sweetAlertDialog;
@@ -506,7 +506,10 @@ public int dimen(@DimenRes int resId) {
             @Override
             public void onResponse(Call<SorcesResponse> call, Response<SorcesResponse> response) {
                 sources=response.body().getResults();
+                if(flag==0)
+                {
                 loadData((ArrayList<Sources>) sources);
+                    flag=1;}
                 Toast.makeText(MainActivity.this,"Loading latest news",Toast.LENGTH_SHORT).show();
             }
 
