@@ -56,6 +56,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener  {
     //firebase authentication
+
     private FirebaseAuth mAuth;
     //sweetAlerDialog progress
     SweetAlertDialog sweetAlertDialog;
@@ -72,7 +73,7 @@ ApiSorceInterface apiSorceInterface;
     Spinner c,cate;
     public static String[] country,category,channels;
     public static List<Sources> sources;
-    String countr_y,categor_y,source_s;
+    String countr_y="",categor_y="",source_s;
     private static final String TAG ="Amit";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +81,8 @@ ApiSorceInterface apiSorceInterface;
         setContentView(R.layout.activity_main);
 /***************firebase
  *
- */
+ */          loadSources(null,null);
+      //  Toast.makeText(this, category.length+country.length+"", Toast.LENGTH_SHORT).show();
         mAuth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -191,7 +193,7 @@ ApiSorceInterface apiSorceInterface;
 
             }
         });
-        if (categor_y.equals(null)&&countr_y.equals(null))
+       if (!categor_y.equals("")&&countr_y.equals(""))
         {
             loadSources(categor_y,countr_y);
         }
@@ -284,6 +286,7 @@ ApiSorceInterface apiSorceInterface;
         country= new HashSet<String>(Arrays.asList(country)).toArray(new String[0]);
         channels= new HashSet<String>(Arrays.asList(channels)).toArray(new String[0]);
         category= new HashSet<String>(Arrays.asList(category)).toArray(new String[0]);
+        Toast.makeText(this, category.length+","+country.length+"", Toast.LENGTH_LONG).show();
 }
 
     @Override
@@ -504,7 +507,7 @@ public int dimen(@DimenRes int resId) {
             public void onResponse(Call<SorcesResponse> call, Response<SorcesResponse> response) {
                 sources=response.body().getResults();
                 loadData((ArrayList<Sources>) sources);
-                Toast.makeText(MainActivity.this,"Loading latest news",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Loading latest news",Toast.LENGTH_SHORT).show();
             }
 
             @Override
